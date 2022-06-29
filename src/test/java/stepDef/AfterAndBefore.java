@@ -60,19 +60,14 @@ public class AfterAndBefore {
     @After
     public static void after(Scenario scenario) {
         if (scenario.isFailed()) {
-
             ExtentTestManager.logFail("Scenario Failed");
             ExtentTestManager.addScreenShotsOnFailure();
         } else {
-
             ExtentTestManager.scenarioPass();
         }
-
         ExtentManager.getReporter().flush();
-
         System.out.println("TearDown");
         SeleniumDriver.tearDown();
-//
     }
 
 

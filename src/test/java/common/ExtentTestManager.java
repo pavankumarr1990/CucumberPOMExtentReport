@@ -11,50 +11,38 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 public class ExtentTestManager {
-
     static ThreadLocal<ExtentTest> testReport = new ThreadLocal<ExtentTest>();
     static ExtentReports extent = ExtentManager.getReporter();
 
     public static synchronized ExtentTest getTest() {
-
         return testReport.get();
     }
 
     public static void logInfo(String message) {
-
         testReport.get().info(message);
     }
 
     public static void logPass(String message) {
-
         testReport.get().pass(message);
     }
 
     public static void scenarioPass() {
-
         String passLogg = "SCENARIO PASSED";
         Markup m = MarkupHelper.createLabel(passLogg, ExtentColor.GREEN);
         testReport.get().log(Status.PASS, m);
-
-
     }
 
     public static void logFail(String message) {
-
         testReport.get().fail(message);
     }
 
     public static synchronized boolean addScreenShotsOnFailure() {
-
         ExtentManager.captureScreenshot();
         try {
-
             testReport.get().fail("<b>" + "<font color=" + "red>" + "Screenshot of failure" + "</font>" + "</b>",
                     MediaEntityBuilder.createScreenCaptureFromPath(ExtentManager.screenshotName).build());
         } catch (IOException e) {
-
         }
-
         String failureLogg = "SCENARIO FAILED";
         Markup m = MarkupHelper.createLabel(failureLogg, ExtentColor.RED);
         testReport.get().log(Status.FAIL, m);
@@ -62,7 +50,6 @@ public class ExtentTestManager {
     }
 
     public static synchronized boolean addScreenShots() {
-
         ExtentManager.captureScreenshot();
         try {
             testReport.get().info(("<b>" + "<font color=" + "green>" + "Screenshot" + "</font>" + "</b>"),
@@ -71,7 +58,6 @@ public class ExtentTestManager {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
         return true;
     }
 
@@ -84,5 +70,4 @@ public class ExtentTestManager {
         testReport.set(test);
         return test;
     }
-
 }
