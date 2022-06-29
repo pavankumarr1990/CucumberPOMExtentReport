@@ -1,0 +1,17 @@
+Maven commands
+1. mvn test -Dcucumber.option="feature file loaction"
+2. mvn test -Dcucumber.option="--tags@smoke"
+3. mvn test -Dtestngfile=testng.xml
+
+4. If JDK is 18 install 17 and run below comment
+..\Java\jdk-17.0.3\bin\java -jar jenkins.war --httpPort=8080
+
+5. How to record video of selenium execution
+https://www.tadigital.com/insights/perspectives/how-to-video-record-selenium-test-cases
+
+6. Pending to read - Regular expressions
+https://www.javatpoint.com/java-regex
+
+7. Pattern prog tricks
+https://www.youtube.com/watch?v=lsOOs5J8ycw
+
